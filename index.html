@@ -13,6 +13,8 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         .bg-yellow-tabe {
@@ -29,8 +31,9 @@
             background-position: center;
         }
 
+        /* Efek Bayangan Khusus Kotak Kontak */
         .contact-shadow {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(250, 204, 21, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(250, 204, 21, 0.15);
         }
 
         /* Animasi Kustom */
@@ -64,7 +67,6 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* Floating Animation for Hero Images or Elements */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -79,25 +81,26 @@
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header / Navbar -->
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="main-nav">
-        <nav class="container mx-auto px-6 py-2.5 flex justify-between items-center transition-all duration-300" id="nav-container">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="main-nav">
+        <!-- Ramping pada mobile (py-1.5) dan proporsional di desktop (md:py-2.5) -->
+        <nav class="container mx-auto px-4 md:px-6 py-1.5 md:py-2.5 flex justify-between items-center transition-all duration-300" id="nav-container">
             <div class="flex items-center space-x-2 group cursor-pointer">
-                <div class="bg-yellow-400 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-                    <span class="font-bold text-xl tracking-tighter text-gray-900">TABE</span>
+                <div class="bg-yellow-400 p-1 md:p-1.5 rounded-lg group-hover:rotate-12 transition-transform shadow-sm">
+                    <span class="font-bold text-lg md:text-xl tracking-tighter text-gray-900">TABE</span>
                 </div>
             </div>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider">
+            <div class="hidden md:flex space-x-8 text-xs md:text-sm font-semibold uppercase tracking-wider">
                 <a href="#home" class="hover:text-yellow-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-yellow-400 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full">Beranda</a>
                 <a href="#about" class="hover:text-yellow-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-yellow-400 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full">Tentang Kami</a>
                 <a href="#services" class="hover:text-yellow-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-yellow-400 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full">Layanan</a>
                 <a href="#contact" class="hover:text-yellow-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-yellow-400 after:left-0 after:-bottom-1 after:transition-all hover:after:w-full">Kontak</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition" id="menu-btn">
-                <i data-lucide="menu"></i>
+            <!-- Mobile Menu Toggle (Ikon diperkecil untuk tampilan mobile ramping) -->
+            <button class="md:hidden p-1.5 hover:bg-gray-100 rounded-lg transition" id="menu-btn" aria-label="Buka Menu">
+                <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
         </nav>
     </header>
@@ -112,26 +115,26 @@
     </div>
 
     <!-- Section 1: Home (Hero) -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20">
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-16 md:pt-20">
         <div class="container mx-auto px-6 text-center md:text-left">
             <div class="max-w-3xl">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
-                    <span class="bg-yellow-400 px-2 inline-block floating">TABE Consultant</span>
+                <h1 class="text-4xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                    <span class="bg-yellow-400 px-2 inline-block floating">TABE Consultant</span><br>
                     Solusi Cerdas Untuk Keuangan Anda
                 </h1>
-                <p class="text-xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up delay-200" style="animation-delay: 200ms;">
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up delay-200" style="animation-delay: 200ms;">
                     Kami hadir memberikan pendampingan finansial profesional untuk individu maupun korporasi. Membantu mengelola aset dan strategi keuangan Anda untuk pertumbuhan yang berkelanjutan dengan manajemen keuangan yang tepat sasaran.
                 </p>
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 animate-fade-in-up" style="animation-delay: 400ms;">
-                    <a href="#services" class="bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 hover:scale-105 transition transform text-center">Lihat Layanan</a>
-                    <a href="#contact" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold hover:bg-yellow-500 hover:scale-105 transition transform text-center border-2 border-yellow-400">Konsultasi Gratis</a>
+                    <a href="#services" class="bg-gray-900 text-white px-8 py-3.5 md:py-4 rounded-full font-bold hover:bg-gray-800 hover:scale-105 transition transform text-center shadow-lg">Lihat Layanan</a>
+                    <a href="#contact" class="bg-yellow-400 text-gray-900 px-8 py-3.5 md:py-4 rounded-full font-bold hover:bg-yellow-500 hover:scale-105 transition transform text-center border-2 border-yellow-400 shadow-lg">Konsultasi Gratis</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 2: About Us -->
-    <section id="about" class="py-24 bg-white overflow-hidden">
+    <section id="about" class="py-20 md:py-24 bg-white overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="relative reveal">
@@ -139,22 +142,22 @@
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tim TABE" class="rounded-2xl shadow-2xl hover:scale-[1.02] transition duration-500">
                 </div>
                 <div class="reveal delay-200">
-                    <span class="text-yellow-600 font-bold tracking-widest uppercase">Tentang Kami</span>
-                    <h2 class="text-4xl font-bold mt-4 mb-6">Partner Strategis Dalam Manajemen Keuangan</h2>
+                    <span class="text-yellow-600 font-bold tracking-widest uppercase text-xs md:text-sm">Tentang Kami</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Partner Strategis Dalam Manajemen Keuangan</h2>
                     <p class="text-gray-600 mb-6 leading-relaxed">
                         Konsultan keuangan profesional dengan integritas tinggi. Membantu mengelola aset dan strategi keuangan Anda untuk pertumbuhan yang berkelanjutan.
                     </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        Teks selanjutnya...
+                    <p class="text-gray-600 mb-8 leading-relaxed italic">
+                        Kami berdedikasi memberikan solusi finansial yang terukur dan akurat untuk setiap tahap perkembangan bisnis dan pribadi Anda.
                     </p>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="border-l-4 border-yellow-400 pl-4 group hover:bg-yellow-50 p-2 transition">
                             <div class="text-3xl font-bold group-hover:text-yellow-600 transition">99+</div>
-                            <div class="text-sm text-gray-500">Klien Puas</div>
+                            <div class="text-sm text-gray-500 uppercase tracking-tighter">Klien Puas</div>
                         </div>
                         <div class="border-l-4 border-yellow-400 pl-4 group hover:bg-yellow-50 p-2 transition">
                             <div class="text-3xl font-bold group-hover:text-yellow-600 transition">99th</div>
-                            <div class="text-sm text-gray-500">Pengalaman</div>
+                            <div class="text-sm text-gray-500 uppercase tracking-tighter">Pengalaman</div>
                         </div>
                     </div>
                 </div>
@@ -163,11 +166,11 @@
     </section>
 
     <!-- Section 3: Services -->
-    <section id="services" class="py-24 bg-gray-50">
+    <section id="services" class="py-20 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
             <div class="reveal">
-                <span class="text-yellow-600 font-bold tracking-widest uppercase">Layanan Kami</span>
-                <h2 class="text-4xl font-bold mt-4 mb-16">Apa Yang Kami Lakukan</h2>
+                <span class="text-yellow-600 font-bold tracking-widest uppercase text-xs md:text-sm">Layanan Kami</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-16">Apa Yang Kami Lakukan</h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -177,7 +180,7 @@
                         <i data-lucide="bar-chart-3" class="text-yellow-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Perencanaan Keuangan</h3>
-                    <p class="text-gray-500">Membantu Anda menyusun strategi keuangan jangka pendek dan panjang agar tujuan finansial tercapai.</p>
+                    <p class="text-gray-500 text-sm md:text-base">Membantu Anda menyusun strategi keuangan jangka pendek dan panjang agar tujuan finansial tercapai.</p>
                 </div>
 
                 <!-- Service 2 -->
@@ -186,7 +189,7 @@
                         <i data-lucide="calculator" class="text-yellow-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Manajemen Pajak</h3>
-                    <p class="text-gray-500">Optimalisasi kewajiban pajak Anda sesuai peraturan yang berlaku, memberikan ketenangan hukum.</p>
+                    <p class="text-gray-500 text-sm md:text-base">Optimalisasi kewajiban pajak Anda sesuai peraturan yang berlaku, memberikan ketenangan hukum.</p>
                 </div>
 
                 <!-- Service 3 -->
@@ -195,64 +198,65 @@
                         <i data-lucide="shield-check" class="text-yellow-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Audit & Kepatuhan</h3>
-                    <p class="text-gray-500">Layanan pemeriksaan laporan keuangan yang independen untuk meningkatkan kredibilitas perusahaan.</p>
+                    <p class="text-gray-500 text-sm md:text-base">Layanan pemeriksaan laporan keuangan yang independen untuk meningkatkan kredibilitas perusahaan.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 4: Contact -->
-    <section id="contact" class="py-24 bg-white">
+    <section id="contact" class="py-20 md:py-24 bg-white">
         <div class="container mx-auto px-6">
+            <!-- Box dengan Bayangan Kustom contact-shadow -->
             <div class="bg-gray-900 rounded-3xl overflow-hidden contact-shadow flex flex-col md:flex-row reveal">
-                <div class="md:w-1/2 p-12 text-white">
-                    <h2 class="text-4xl font-bold mb-6">Mulai Konsultasi</h2>
-                    <p class="text-gray-400 mb-8">Konsultasi awal gratis. Tim kami akan merespons pertanyaan Anda dalam waktu kurang dari 24 jam kerja. Kami menjamin kerahasiaan data Anda. Data hanya digunakan untuk kepentingan konsultasi.</p>
+                <div class="md:w-1/2 p-8 md:p-12 text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Mulai Konsultasi</h2>
+                    <p class="text-gray-400 mb-8 text-sm md:text-base">Konsultasi awal gratis. Tim kami akan merespons pertanyaan Anda dalam waktu kurang dari 24 jam kerja. Kami menjamin kerahasiaan data Anda. Data hanya digunakan untuk kepentingan konsultasi.</p>
                     
                     <div class="space-y-6">
                         <div class="flex items-center space-x-4 group cursor-pointer">
-                            <div class="bg-yellow-400 p-3 rounded-full text-gray-900 group-hover:rotate-12 transition">
-                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            <div class="bg-yellow-400 p-2.5 md:p-3 rounded-full text-gray-900 group-hover:rotate-12 transition">
+                                <i data-lucide="phone" class="w-4 h-4 md:w-5 md:h-5"></i>
                             </div>
-                            <span class="group-hover:text-yellow-400 transition">+62 808 0808 0800</span>
+                            <span class="group-hover:text-yellow-400 transition text-sm md:text-base">+62 808 0808 0800</span>
                         </div>
                         <div class="flex items-center space-x-4 group cursor-pointer">
-                            <div class="bg-yellow-400 p-3 rounded-full text-gray-900 group-hover:rotate-12 transition">
-                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            <div class="bg-yellow-400 p-2.5 md:p-3 rounded-full text-gray-900 group-hover:rotate-12 transition">
+                                <i data-lucide="mail" class="w-4 h-4 md:w-5 md:h-5"></i>
                             </div>
-                            <span class="group-hover:text-yellow-400 transition">halo@tabe.co.id</span>
+                            <span class="group-hover:text-yellow-400 transition text-sm md:text-base">halo@tabe.co.id</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="md:w-1/2 bg-yellow-400 p-12 relative">
+                <div class="md:w-1/2 bg-yellow-400 p-8 md:p-12 relative">
                     <form id="contact-form" class="space-y-4">
                         <div>
-                            <label class="block text-gray-900 font-bold mb-2">Nama Lengkap</label>
-                            <input type="text" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-lg bg-white border-transparent focus:ring-2 focus:ring-gray-900 outline-none transition-shadow">
+                            <label class="block text-gray-900 font-bold mb-2 text-sm">Nama Lengkap</label>
+                            <input type="text" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-lg bg-white border-transparent focus:ring-2 focus:ring-gray-900 outline-none transition-shadow text-sm md:text-base">
                         </div>
                         <div>
-                            <label class="block text-gray-900 font-bold mb-2">Email</label>
-                            <input type="email" required placeholder="Email aktif" class="w-full px-4 py-3 rounded-lg bg-white border-transparent focus:ring-2 focus:ring-gray-900 outline-none transition-shadow">
+                            <label class="block text-gray-900 font-bold mb-2 text-sm">Email</label>
+                            <input type="email" required placeholder="Email aktif" class="w-full px-4 py-3 rounded-lg bg-white border-transparent focus:ring-2 focus:ring-gray-900 outline-none transition-shadow text-sm md:text-base">
                         </div>
                         <div>
-                            <label class="block text-gray-900 font-bold mb-2">Pesan</label>
-                            <textarea rows="4" required placeholder="Apa yang bisa kami bantu?" class="w-full px-4 py-3 rounded-lg bg-white border-transparent focus:ring-2 focus:ring-gray-900 outline-none transition-shadow"></textarea>
+                            <label class="block text-gray-900 font-bold mb-2 text-sm">Pesan</label>
+                            <textarea rows="4" required placeholder="Apa yang bisa kami bantu?" class="w-full px-4 py-3 rounded-lg bg-white border-transparent focus:ring-2 focus:ring-gray-900 outline-none transition-shadow text-sm md:text-base"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-gray-900 text-white py-4 rounded-lg font-bold hover:bg-black transition-all transform active:scale-95 uppercase tracking-wider flex items-center justify-center space-x-2">
+                        <button type="submit" class="w-full bg-gray-900 text-white py-4 rounded-lg font-bold hover:bg-black transition-all transform active:scale-95 uppercase tracking-wider flex items-center justify-center space-x-2 text-sm md:text-base">
                             <span>Kirim Pesan</span>
                             <i data-lucide="send" class="w-4 h-4"></i>
                         </button>
                     </form>
 
-                    <!-- Custom Success Message Box -->
-                    <div id="success-box" class="absolute inset-0 bg-yellow-400 flex flex-col items-center justify-center p-12 text-center hidden">
+                    <!-- Success Message Box -->
+                    <div id="success-box" class="absolute inset-0 bg-yellow-400 flex flex-col items-center justify-center p-8 md:p-12 text-center hidden z-10">
                         <div class="bg-gray-900 text-yellow-400 p-4 rounded-full mb-4">
-                            <i data-lucide="check-circle" class="w-12 h-12"></i>
+                            <i data-lucide="check-circle" class="w-10 h-10 md:w-12 md:h-12"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Terima Kasih!</h3>
-                        <p class="text-gray-800">Pesan Anda telah berhasil dikirim. Tim TABE akan segera menghubungi Anda.</p>
-                        <button onclick="resetForm()" class="mt-6 text-gray-900 underline font-bold">Kirim pesan lain</button>
+                        <p class="text-gray-800 text-sm md:text-base">Pesan Anda telah berhasil dikirim. Tim TABE akan segera menghubungi Anda.</p>
+                        <button onclick="resetForm()" class="mt-6 text-gray-900 underline font-bold text-sm">Kirim pesan lain</button>
                     </div>
                 </div>
             </div>
@@ -260,22 +264,22 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 pt-20 pb-10 border-t border-gray-200">
+    <footer class="bg-gray-50 pt-16 md:pt-20 pb-10 border-t border-gray-200">
         <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
             <div class="col-span-1 reveal">
                 <div class="flex items-center space-x-2 mb-6">
-                    <div class="bg-yellow-400 p-2 rounded-lg">
-                        <span class="font-bold text-xl text-gray-900">TABE</span>
+                    <div class="bg-yellow-400 p-2 rounded-lg shadow-sm">
+                        <span class="font-bold text-xl text-gray-900 uppercase">TABE</span>
                     </div>
                 </div>
-                <p class="text-gray-500 leading-relaxed">
+                <p class="text-gray-500 leading-relaxed text-sm">
                     Konsultan keuangan profesional dengan integritas tinggi. Membantu mengelola aset dan strategi keuangan Anda untuk pertumbuhan yang berkelanjutan.
                 </p>
             </div>
 
             <div class="reveal delay-100">
-                <h4 class="font-bold text-lg mb-6">Tautan Cepat</h4>
-                <ul class="space-y-4 text-gray-600">
+                <h4 class="font-bold text-lg mb-6 uppercase tracking-widest text-sm md:text-base">Tautan Cepat</h4>
+                <ul class="space-y-4 text-gray-600 text-sm">
                     <li><a href="#home" class="hover:text-yellow-600 transition">Beranda</a></li>
                     <li><a href="#about" class="hover:text-yellow-600 transition">Tentang Kami</a></li>
                     <li><a href="#services" class="hover:text-yellow-600 transition">Layanan</a></li>
@@ -284,8 +288,8 @@
             </div>
 
             <div class="reveal delay-200">
-                <h4 class="font-bold text-lg mb-6">Lokasi</h4>
-                <p class="text-gray-600">
+                <h4 class="font-bold text-lg mb-6 uppercase tracking-widest text-sm md:text-base">Lokasi</h4>
+                <p class="text-gray-600 text-sm leading-relaxed">
                     Jl. Bali No. 123<br>
                     Jatiasih<br>
                     Bekasi Selatan, 12345<br>
@@ -294,26 +298,26 @@
             </div>
 
             <div class="reveal delay-300">
-                <h4 class="font-bold text-lg mb-6">Hubungi Kami</h4>
-                <ul class="space-y-4 text-gray-600">
-                    <li class="flex items-center space-x-3">
-                        <i data-lucide="phone" class="w-4 h-4 text-yellow-600"></i>
+                <h4 class="font-bold text-lg mb-6 uppercase tracking-widest text-sm md:text-base">Hubungi Kami</h4>
+                <ul class="space-y-4 text-gray-600 text-sm">
+                    <li class="flex items-center space-x-3 group">
+                        <i data-lucide="phone" class="w-4 h-4 text-yellow-600 group-hover:scale-110 transition"></i>
                         <span>+62 808 0808 0800</span>
                     </li>
-                    <li class="flex items-center space-x-3">
-                        <i data-lucide="mail" class="w-4 h-4 text-yellow-600"></i>
+                    <li class="flex items-center space-x-3 group">
+                        <i data-lucide="mail" class="w-4 h-4 text-yellow-600 group-hover:scale-110 transition"></i>
                         <span>halo@tabe.co.id</span>
                     </li>
                     <li class="flex space-x-4 mt-6">
-                        <a href="#" class="bg-gray-200 p-2 rounded-full hover:bg-yellow-400 hover:scale-110 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#" class="bg-gray-200 p-2 rounded-full hover:bg-yellow-400 hover:scale-110 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="bg-gray-200 p-2 rounded-full hover:bg-yellow-400 hover:scale-110 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-200 p-2 rounded-full hover:bg-yellow-400 hover:scale-110 transition duration-300" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-200 p-2 rounded-full hover:bg-yellow-400 hover:scale-110 transition duration-300" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-200 p-2 rounded-full hover:bg-yellow-400 hover:scale-110 transition duration-300" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
                     </li>
                 </ul>
             </div>
         </div>
         
-        <div class="container mx-auto px-6 pt-8 border-t border-gray-200 text-center text-gray-400 text-sm">
+        <div class="container mx-auto px-6 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs">
             <p>&copy; 2026 TABE Financial Consulting. Seluruh Hak Cipta Dilindungi.</p>
         </div>
     </footer>
@@ -325,16 +329,19 @@
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
+            const navContainer = document.getElementById('nav-container');
             if (window.scrollY > 50) {
-                nav.classList.add('py-2', 'shadow-md');
-                nav.classList.remove('py-4', 'shadow-sm');
+                nav.classList.add('shadow-md');
+                navContainer.classList.remove('py-1.5', 'md:py-2.5');
+                navContainer.classList.add('py-1', 'md:py-1.5');
             } else {
-                nav.classList.add('py-4', 'shadow-sm');
-                nav.classList.remove('py-2', 'shadow-md');
+                nav.classList.remove('shadow-md');
+                navContainer.classList.add('py-1.5', 'md:py-2.5');
+                navContainer.classList.remove('py-1', 'md:py-1.5');
             }
         });
 
-        // Mobile Menu Toggle Logic
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -353,7 +360,7 @@
         closeBtn.addEventListener('click', closeMenu);
         mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-        // Scroll Reveal Animation Logic
+        // Scroll Reveal Logic
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const triggerBottom = window.innerHeight * 0.85;
@@ -364,27 +371,25 @@
                 }
             });
         };
-
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        // Form Submission Animation
+        // Form Submission Simulation
         const contactForm = document.getElementById('contact-form');
         const successBox = document.getElementById('success-box');
 
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Simulate loading
             const btn = contactForm.querySelector('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<span class="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5"></span>';
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<span class="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4 md:w-5 md:h-5"></span>';
             btn.disabled = true;
 
             setTimeout(() => {
                 successBox.classList.remove('hidden');
                 successBox.classList.add('animate-fade-in-up');
                 contactForm.reset();
-                btn.innerHTML = originalText;
+                btn.innerHTML = originalContent;
                 btn.disabled = false;
             }, 1000);
         });
