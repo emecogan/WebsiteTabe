@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situs Dalam Perbaikan - TABE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* Animasi Gear Berputar */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-spin-slow {
+            animation: rotate 8s linear infinite;
+        }
+
+        .animate-spin-reverse {
+            animation: rotate 12s linear infinite reverse;
+        }
+
+        /* Efek Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-6 py-12">
+
+    <!-- Latar Belakang Dekoratif (Diubah ke Fixed agar tetap di posisi saat scroll) -->
+    <div class="fixed inset-0 overflow-hidden -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-yellow-200 rounded-full blur-[120px] opacity-40"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-yellow-400 rounded-full blur-[120px] opacity-20"></div>
+    </div>
+
+    <div class="max-w-2xl w-full text-center fade-in">
+        <!-- Logo Brand -->
+        <div class="flex justify-center mb-12">
+            <div class="bg-yellow-400 p-3 rounded-2xl shadow-lg transform hover:rotate-6 transition-transform">
+                <span class="font-bold text-3xl tracking-tighter text-gray-900">TABE</span>
+            </div>
+        </div>
+
+        <!-- Ilustrasi Gear Animatif -->
+        <div class="relative flex justify-center mb-10">
+            <div class="relative w-32 h-32">
+                <i data-lucide="settings" class="w-24 h-24 text-gray-800 animate-spin-slow absolute top-0 left-0"></i>
+                <i data-lucide="settings" class="w-16 h-16 text-yellow-500 animate-spin-reverse absolute bottom-0 right-0"></i>
+            </div>
+        </div>
+
+        <!-- Pesan Utama -->
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Kami Sedang <br> <span class="text-yellow-600">Meningkatkan Layanan</span>
+        </h1>
+        <p class="text-gray-600 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+            Mohon maaf atas ketidaknyamanannya. Website TABE sedang dalam proses pemeliharaan rutin untuk memberikan pengalaman yang lebih baik bagi Anda.
+        </p>
+
+        <!-- Informasi Kontak Darurat -->
+        <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 inline-block w-full">
+            <h3 class="font-bold text-gray-900 mb-4">Butuh Bantuan Segera?</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="mailto:halo@tabeconsult.id" class="flex items-center space-x-2 text-gray-600 hover:text-yellow-600 transition group">
+                    <div class="bg-yellow-100 p-2 rounded-lg group-hover:bg-yellow-400 group-hover:text-white transition">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-sm font-medium">halo@tabe.co.id</span>
+                </a>
+                <a href="https://wa.me/6281234567890" class="flex items-center space-x-2 text-gray-600 hover:text-yellow-600 transition group">
+                    <div class="bg-yellow-100 p-2 rounded-lg group-hover:bg-yellow-400 group-hover:text-white transition">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-sm font-medium">+62 808 0808 0800</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Kecil -->
+        <p class="mt-12 text-gray-400 text-sm pb-4">
+            &copy; 2026 TABE Financial Consulting. Kami akan segera kembali.
+        </p>
+    </div>
+
+    <script>
+        // Inisialisasi ikon Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>
